@@ -1,0 +1,153 @@
+*FlorinN lab02 CUMULATIVE* (java stuff)
+
+/*FlorinN lab02 p2
+* Scrieti o aplicatie Java in care cititi de la tastatura o valoare intreaga si se afiseaza factorialul
+numarului citit.
+*/
+
+import java.util.Scanner;
+
+public class Main 
+{
+    public static void main(String[] args) 
+{
+        Scanner ob = new Scanner(System.in);
+        int n = ob.nextInt();
+        int fact = 1;
+        for (int i = 1; i <= n; i++) 
+{
+            fact *= i;
+        }
+        System.out.println("Factorial of " + n + " is: " + fact);
+
+        ob.close();
+    }
+}
+
+/****************************************************************************************************/
+
+/*FlorinN lab02 p3
+*  Scrieti o aplicatie Java in care se citesc de la tastatura
+*  2 valori intregi si se afiseaza cmmdc-ul valorilor.*/
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Enter an integer number: ");
+        Scanner ob = new Scanner(System.in);
+        int a = ob.nextInt();
+
+        System.out.println("Enter another integer number: ");
+        int b = ob.nextInt();
+
+        System.out.println("Numbers entered: " + a + " " + b);
+
+        // Calculate the greatest common divisor (GCD)
+        int gcd = calculateGCD(a, b);
+
+        System.out.println("The greatest common divisor (GCD) is: " + gcd);
+
+        ob.close();
+    }
+
+    // Function to calculate the greatest common divisor (GCD) using Euclidean algorithm
+    public static int calculateGCD(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+/***************************************************************************************************/
+
+/*FlorinN lab02 p4
+* Scrieti o aplicatie Java in care cititi de la tastatura un numar intreg si afisati toti 
+divizorii numarului citit.
+*/
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Enter an integer number:");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+
+        System.out.println("Dividers of " + number + ":");
+        for (int i = 1; i <= number; i++)
+        {
+            if (number % i == 0)
+            {
+                System.out.print(i + " ");
+            }
+        }
+        scanner.close();
+    }
+}
+
+/*************************************************************************************************/
+
+/*FlorinN lab02 p5
+*. Scrieti o aplicatie Java in care cititi de la tastatuta mai multe numere intregi si verificati daca sunt numere prime. Numarul de valori citite este preluat de la tastatura sau din linia de comanda. */
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of values you want to check: ");
+        int n = scanner.nextInt();
+
+        for (int i = 0; i < n; i++)
+        {
+            System.out.print("Enter an integer: ");
+            int number = scanner.nextInt();
+
+            if (isPrime(number))
+            {
+                System.out.println(number + " is a prime number.");
+            }
+            else
+            {
+                System.out.println(number + " is not a prime number.");
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Function to check if a number is prime
+    public static boolean isPrime(int number)
+    {
+        if (number <= 1)
+        {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+/*********************************************************************************************/
+//first * done...
